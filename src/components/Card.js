@@ -1,5 +1,6 @@
 import * as React from "react"
 import {Link} from "gatsby";
+import {css} from "@emotion/react";
 
 const cardStyles = {
   display: "flex",
@@ -19,24 +20,21 @@ const cardStyles = {
       "8px 8px 0 0 #24292f"
 }
 
-const titleStyles = {
-  fontWeight: "700",
-}
-
-const linkStyles = {
-  color: "black",
-  cursor: "alias",
-  textDecoration: "none",
-}
-
 export const Card = (props) => {
   return (
     <div style={cardStyles}>
       <span>{props.keyword}</span>
-      <span style={titleStyles}>
+      <span css={css`font-weight: 700`}>
         <Link
             to={`/blog/${props.link}`}
-            style={linkStyles}>
+            css={css`
+              color: black;
+              cursor: alias;
+              text-decoration: none;
+              &:hover {
+                text-decoration: underline;
+              }
+            `}>
           {props.title}
         </Link>
       </span>

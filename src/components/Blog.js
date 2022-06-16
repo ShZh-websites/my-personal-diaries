@@ -29,11 +29,11 @@ const Blog = (props) => {
       `}
         />
         <h1 style={titleStyles}>{props.title}</h1>
-        <div style={containerStyles}>
+        <article style={containerStyles}>
           <MDXRenderer>
             {props.body}
           </MDXRenderer>
-        </div>
+        </article>
       </>
   )
 }

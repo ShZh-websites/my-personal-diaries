@@ -9,44 +9,36 @@ const titleStyles = {
   fontFamily: "TEXT_CONTENT,TEXT_CONTENT_SYNTH,'Source Han Serif SC',serif",
 }
 
-const mainStyles = {
+const containerStyles = {
   margin: "0 auto",
   padding: "8px 16px",
   minHeight: "100vh",
   maxWidth: "800px",
 }
 
-const containerStyles = {
+const mainStyles = {
   display: "flex",
   flexWrap: "wrap"
 }
 
-const footerStyles = {
-  paddingTop: "0.75rem"
-}
-
 const IndexPage = ({ data }) => {
   return (
-    <div style={mainStyles}>
+    <div style={containerStyles}>
       <h1 style={titleStyles}>ShZh7的博客</h1>
-      <main>
-        <div style={containerStyles}>
-          {
-            data.allMdx.nodes.map(node => (
-              <Card
-                  key={node.id}
-                  link={node.slug}
-                  keyword={node.frontmatter.keyword}
-                  title={node.frontmatter.title}
-                  date={node.frontmatter.date}>
-              </Card>
-            ))
-          }
-        </div>
+      <main style={mainStyles}>
+        {
+          data.allMdx.nodes.map(node => (
+            <Card
+                key={node.id}
+                link={node.slug}
+                keyword={node.frontmatter.keyword}
+                title={node.frontmatter.title}
+                date={node.frontmatter.date}>
+            </Card>
+          ))
+        }
       </main>
-      <footer style={footerStyles}>
-        <Copyright></Copyright>
-      </footer>
+      <Copyright></Copyright>
     </div>
   )
 }

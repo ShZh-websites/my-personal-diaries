@@ -1,4 +1,5 @@
 import * as React from "react"
+import {css} from "@emotion/react";
 
 const lineStyles = {
   margin: "0",
@@ -14,11 +15,11 @@ const copyrightStyles = {
 
 export const Copyright = () => {
   return (
-    <>
+    <footer css={css`padding-top: 0.75rem`}>
       <hr style={lineStyles}></hr>
       <div style={copyrightStyles}>
         Copyright ©️ {new Date().getFullYear()} ShZh7
       </div>
-    </>
+    </footer>
   )
 }
