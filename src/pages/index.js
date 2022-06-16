@@ -5,7 +5,8 @@ import "normalize.css";
 import {graphql} from "gatsby";
 
 const titleStyles = {
-  textAlign: "center"
+  textAlign: "center",
+  fontFamily: "TEXT_CONTENT,TEXT_CONTENT_SYNTH,'Source Han Serif SC',serif",
 }
 
 const mainStyles = {
