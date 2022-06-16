@@ -2,6 +2,7 @@ import * as React from "react"
 
 const cardStyles = {
   display: "flex",
+  flex: "auto",
   flexDirection: "column",
   justifyContent: "space-between",
   margin: "8px",
