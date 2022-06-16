@@ -2,6 +2,7 @@ import * as React from "react"
 import {Card} from "../components/Card";
 import {Copyright} from "../components/Copyright";
 import "normalize.css";
+import {graphql} from "gatsby";
 
 const titleStyles = {
   textAlign: "center"
@@ -23,15 +24,23 @@ const footerStyles = {
   paddingTop: "0.75rem"
 }
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
     <div style={mainStyles}>
       <h1 style={titleStyles}>ShZh7的博客</h1>
       <main>
         <div style={containerStyles}>
-          <Card keyword={"Kotlin"} title={"我的第一个Q群机器人"} time={"2022-06-16"}></Card>
-          <Card keyword={"Kotlin"} title={"我的第二个Q群机器人"} time={"2022-06-16"}></Card>
-          <Card keyword={"Kotlin"} title={"我的第三个Q群机器人"} time={"2022-06-16"}></Card>
+          {
+            data.allMdx.nodes.map(node => (
+              <Card
+                  key={node.id}
+                  link={node.slug}
+                  keyword={node.frontmatter.keyword}
+                  title={node.frontmatter.title}
+                  date={node.frontmatter.date}>
+              </Card>
+            ))
+          }
         </div>
       </main>
       <footer style={footerStyles}>
@@ -40,5 +49,21 @@ const IndexPage = () => {
     </div>
   )
 }
+
+export const query = graphql`
+  query MyQuery {
+    allMdx {
+      nodes {
+        frontmatter {
+          date
+          title
+          keyword
+        }
+        id
+        slug
+      }
+    }
+  }
+`
 
 export default IndexPage
