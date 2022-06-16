@@ -1,14 +1,11 @@
 import * as React from 'react'
 import {graphql} from "gatsby";
-import {MDXRenderer} from "gatsby-plugin-mdx";
+import Blog from "../../components/Blog";
 
 const BlogPost = ({ data }) => {
   return (
     <>
-      <h1>{data.mdx.frontmatter.title}</h1>
-      <MDXRenderer>
-        {data.mdx.body}
-      </MDXRenderer>
+      <Blog title={data.mdx.frontmatter.title} body={data.mdx.body}></Blog>
     </>
   )
 }
