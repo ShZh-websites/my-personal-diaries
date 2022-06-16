@@ -1,4 +1,5 @@
 import * as React from "react"
+import {Link} from "gatsby";
 
 const cardStyles = {
   display: "flex",
@@ -19,7 +20,13 @@ const cardStyles = {
 }
 
 const titleStyles = {
-  fontWeight: "700"
+  fontWeight: "700",
+}
+
+const linkStyles = {
+  color: "black",
+  cursor: "alias",
+  textDecoration: "none",
 }
 
 export const Card = (props) => {
@@ -27,9 +34,13 @@ export const Card = (props) => {
     <div style={cardStyles}>
       <span>{props.keyword}</span>
       <span style={titleStyles}>
-        <a>{props.title}</a>
+        <Link
+            to={`/blog/${props.link}`}
+            style={linkStyles}>
+          {props.title}
+        </Link>
       </span>
-      <time>{props.time}</time>
+      <time>{props.date}</time>
     </div>
   )
 }
