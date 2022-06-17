@@ -30,7 +30,7 @@ const IndexPage = ({ data }) => {
         <title>ShZh日记｜首页</title>
       </Helmet>
       <div style={containerStyles}>
-        <h1 class="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
+        <h1 className="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
         <main style={mainStyles}>
           {
             data.allMdx.nodes.map(node => (
