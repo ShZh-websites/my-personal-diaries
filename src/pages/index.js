@@ -4,6 +4,7 @@ import {Copyright} from "../components/Copyright";
 import "normalize.css";
 import "heti/umd/heti.min.css";
 import {graphql} from "gatsby";
+import {Helmet} from "react-helmet";
 
 const titleStyles = {
   textAlign: "center",
@@ -24,23 +25,28 @@ const mainStyles = {
 
 const IndexPage = ({ data }) => {
   return (
-    <div style={containerStyles}>
-      <h1 class="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
-      <main style={mainStyles}>
-        {
-          data.allMdx.nodes.map(node => (
-            <Card
-                key={node.id}
-                link={node.slug}
-                keyword={node.frontmatter.keyword}
-                title={node.frontmatter.title}
-                date={node.frontmatter.date}>
-            </Card>
-          ))
-        }
-      </main>
-      <Copyright></Copyright>
-    </div>
+    <>
+      <Helmet>
+        <title>ShZh日记｜首页</title>
+      </Helmet>
+      <div style={containerStyles}>
+        <h1 class="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
+        <main style={mainStyles}>
+          {
+            data.allMdx.nodes.map(node => (
+                <Card
+                    key={node.id}
+                    link={node.slug}
+                    keyword={node.frontmatter.keyword}
+                    title={node.frontmatter.title}
+                    date={node.frontmatter.date}>
+                </Card>
+            ))
+          }
+        </main>
+        <Copyright></Copyright>
+      </div>
+    </>
   )
 }
 

@@ -2,6 +2,7 @@ import * as React from 'react'
 import {graphql} from "gatsby";
 import Blog from "../../components/Blog";
 import {Copyright} from "../../components/Copyright";
+import {Helmet} from "react-helmet";
 
 const containerStyles = {
   margin: "0 auto",
@@ -10,10 +11,15 @@ const containerStyles = {
 
 const BlogPost = ({ data }) => {
   return (
-    <div style={containerStyles}>
-      <Blog title={data.mdx.frontmatter.title} body={data.mdx.body} />
-      <Copyright />
-    </div>
+    <>
+      <Helmet>
+        <title>ShZh日记｜{data.mdx.frontmatter.title}</title>
+      </Helmet>
+      <div style={containerStyles}>
+        <Blog title={data.mdx.frontmatter.title} body={data.mdx.body} />
+        <Copyright />
+      </div>
+    </>
   )
 }
 
