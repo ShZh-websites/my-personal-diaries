@@ -34,6 +34,12 @@ module.exports = {
         "path": "./blog/"
       }
     },
+    // {
+    //   resolve: 'gatsby-plugin-manifest',
+    //   options: {
+    //     icon: 'src/images/favicon.ico',
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-feed",
       options: {
@@ -58,7 +64,6 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: encodeURI(site.siteMetadata.siteUrl + '/' + node.slug),
                   guid: site.siteMetadata.siteUrl + node.slug,
-                  // custom_elements: [{ "content:encoded": node.html }],
                 })
               })
             },
