@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `my-personal-blogs`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://diary.shzh.me/`
   },
   plugins: [
     "gatsby-plugin-emotion",
@@ -9,6 +9,7 @@ module.exports = {
     "gatsby-transformer-remark",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -32,6 +33,55 @@ module.exports = {
         "path": "./blog/"
       }
     },
-    "gatsby-plugin-mdx"
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.frontmatter.desc,
+                  date: node.frontmatter.date,
+                  url: encodeURI(site.siteMetadata.siteUrl + '/' + node.slug),
+                  guid: site.siteMetadata.siteUrl + node.slug,
+                  // custom_elements: [{ "content:encoded": node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+                  nodes {
+                    frontmatter {
+                      date
+                      title
+                      keyword
+                    }
+                    id
+                    slug
+                  }
+                }
+              }
+          `,
+            output: "/rss.xml",
+            title: "ShZh blogs' RSS Feed",
+            match: "^/blog/",
+          },
+        ]
+      }
+    },
   ]
 };
