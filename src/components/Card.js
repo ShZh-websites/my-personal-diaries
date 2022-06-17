@@ -28,11 +28,24 @@ export const Card = (props) => {
         <Link
             to={`/blog/${props.link}`}
             css={css`
+              position: relative;
               color: black;
               cursor: alias;
               text-decoration: none;
-              &:hover {
-                text-decoration: underline;
+              &:after {
+                content: '';
+                position: absolute;
+                bottom: 0.1em;
+                left: 0;
+                right: 0;
+                border-bottom: 2px solid currentColor;
+                transform-origin: right center;
+                transform: scaleX(0);
+                transition: transform ease-in-out 0.2s;
+              }
+              &:hover:after {
+                transform-origin: left center;
+                transform: scaleX(1);
               }
             `}>
           {props.title}
