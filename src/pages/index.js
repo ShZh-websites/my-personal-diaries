@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query MyQuery {
+  {
     allMdx {
       nodes {
         frontmatter {
