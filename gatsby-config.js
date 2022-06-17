@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `my-personal-blogs`,
+    title: `ShZh的日记`,
+    description: "沈之豪的个人日记小站",
+    image: "/favicon.ico",
     siteUrl: `https://diary.shzh.me/`
   },
   plugins: [
@@ -11,14 +13,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "images",
-        "path": "./src/images/"
-      },
-      __key: "images"
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -34,12 +28,12 @@ module.exports = {
         "path": "./blog/"
       }
     },
-    // {
-    //   resolve: 'gatsby-plugin-manifest',
-    //   options: {
-    //     icon: 'src/images/favicon.ico',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'static/favicon.ico',
+      },
+    },
     {
       resolve: "gatsby-plugin-feed",
       options: {
