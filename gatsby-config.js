@@ -76,7 +76,7 @@ module.exports = {
                 }
               }
           `,
-            output: "/rss.xml",
+            output: "/feed.xml",
             title: "ShZh blogs' RSS Feed",
             match: "^/blog/",
           },
