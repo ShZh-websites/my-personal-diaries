@@ -5,7 +5,7 @@ import {Copyright} from "../../components/Copyright";
 
 const containerStyles = {
   margin: "0 auto",
-  maxWidth: "48rem",
+  maxWidth: "42rem",
 }
 
 const BlogPost = ({ data }) => {

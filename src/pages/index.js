@@ -2,6 +2,7 @@ import * as React from "react"
 import {Card} from "../components/Card";
 import {Copyright} from "../components/Copyright";
 import "normalize.css";
+import "heti/umd/heti.min.css";
 import {graphql} from "gatsby";
 
 const titleStyles = {
@@ -24,7 +25,7 @@ const mainStyles = {
 const IndexPage = ({ data }) => {
   return (
     <div style={containerStyles}>
-      <h1 style={titleStyles}>ShZh7的博客</h1>
+      <h1 class="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
       <main style={mainStyles}>
         {
           data.allMdx.nodes.map(node => (
