@@ -20,7 +20,7 @@ const containerStyles = {
 const Blog = (props) => {
   return (
       <>
-        <article class="heti heti--classic">
+        <article className="heti heti--classic">
           <h1 style={titleStyles}>{props.title}</h1>
           <div style={containerStyles}>
             <MDXRenderer>
