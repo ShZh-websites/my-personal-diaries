@@ -26,11 +26,13 @@ const mainStyles = {
 const IndexPage = ({ data }) => {
   return (
     <>
-      <Helmet>
+      <Helmet
+          htmlAttributes={{lang: 'zh-CN'}}
+          meta={[{name: "description", content: "沈之豪的个人日记小站"}]}>
         <title>ShZh日记｜首页</title>
       </Helmet>
       <div style={containerStyles}>
-        <h1 className="heti--kai"  style={titleStyles}>沈之豪的博客</h1>
+        <h1 className="heti--kai"  style={titleStyles}>沈之豪的日记</h1>
         <main style={mainStyles}>
           {
             data.allMdx.nodes.map(node => (
