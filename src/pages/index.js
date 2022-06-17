@@ -30,6 +30,7 @@ const IndexPage = ({ data }) => {
           htmlAttributes={{lang: 'zh-CN'}}
           meta={[{name: "description", content: "沈之豪的个人日记小站"}]}>
         <title>ShZh日记｜首页</title>
+        <link href="https://diary.shzh.me/feed.xml" type="application/rss+xml" rel="alternate" title="ShZh diary's RSS feed" />
       </Helmet>
       <div style={containerStyles}>
         <h1 className="heti--kai"  style={titleStyles}>沈之豪的日记</h1>
