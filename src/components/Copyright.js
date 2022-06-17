@@ -15,7 +15,7 @@ const copyrightStyles = {
 
 export const Copyright = () => {
   return (
-    <footer css={css`padding-top: 0.75rem`}>
+    <footer css={css`padding: 1rem 0`}>
       <hr style={lineStyles}></hr>
       <div style={copyrightStyles}>
         Copyright ©️ {new Date().getFullYear()} ShZh7
