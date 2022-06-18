@@ -3,8 +3,7 @@ import {GlobalStyles} from "./GlobalStyles";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import "heti/umd/heti.min.css";
 
-
-const titleStyles = {
+export const titleStyles = {
   textAlign: "center",
   paddingTop: "100px",
   paddingBottom: "81px",
@@ -18,7 +17,7 @@ const containerStyles = {
   fontSize: "18px",
 }
 
-const Blog = (props) => {
+export const Blog = (props) => {
   return (
       <>
         <GlobalStyles />
@@ -33,5 +32,3 @@ const Blog = (props) => {
       </>
   )
 }
-
-export default Blog;

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {graphql} from "gatsby";
-import Blog from "../../components/Blog";
+import {Blog} from "../../components/Blog";
 import {Copyright} from "../../components/Copyright";
 import {Helmet} from "react-helmet";
 
