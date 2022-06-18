@@ -12,7 +12,12 @@ const containerStyles = {
 const BlogPost = ({ data }) => {
   return (
     <>
-      <Helmet>
+      <Helmet
+        htmlAttributes={{lang: 'zh-CN'}}
+        meta={[
+          {name: "description", content: "沈之豪的个人日记小站"},
+          {name: "color-scheme", content: "light dark"}
+        ]}>
         <title>ShZh日记｜{data.mdx.frontmatter.title}</title>
       </Helmet>
       <div style={containerStyles}>

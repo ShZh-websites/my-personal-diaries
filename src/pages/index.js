@@ -35,8 +35,11 @@ const IndexPage = (props) => {
   return (
     <>
       <Helmet
-          htmlAttributes={{lang: 'zh-CN'}}
-          meta={[{name: "description", content: "沈之豪的个人日记小站"}]}>
+        htmlAttributes={{lang: 'zh-CN'}}
+        meta={[
+            {name: "description", content: "沈之豪的个人日记小站"},
+            {name: "color-scheme", content: "light dark"}
+        ]}>
         <title>ShZh日记｜首页</title>
         <link href="https://diary.shzh.me/feed.xml"
               title="ShZh diary's RSS feed"
