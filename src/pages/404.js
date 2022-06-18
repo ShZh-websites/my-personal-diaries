@@ -1,53 +1,42 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import {titleStyles} from "../components/Blog";
+import {css} from "@emotion/react";
+import {GlobalStyles} from "../components/GlobalStyles";
+import {Helmet} from "react-helmet";
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-// markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <>
+      <Helmet
+          htmlAttributes={{lang: 'zh-CN'}}
+          meta={[
+            {name: "description", content: "沈之豪的个人日记小站"},
+            {name: "color-scheme", content: "light dark"}
+          ]}>
+        <title>404 Not Found</title>
+      </Helmet>
+      <GlobalStyles />
+      <div className="heti heti--classic" css={css`margin: 0 auto`}>
+        <h1 style={titleStyles}>没有找到页面</h1>
+        <p css={css`
+          font-size: 18px;
+          text-align: center !important;
+        `}>
+          点击
+          <Link to='/' css={css`
+            color: black;
+            cursor: alias;
+            font-weight: 900;
+            text-decoration: underline !important;
+            &:hover {
+              border: none !important;
+            }
+          `}>这里</Link>
+          回到首页
+        </p>
+      </div>
+    </>
   )
 }
 
