@@ -3,14 +3,14 @@ import {css} from "@emotion/react";
 
 const lineStyles = {
   margin: "0",
-  borderColor: "rgb(229, 231, 235)",
+  borderColor: "#e5e7eb",
   borderWidth: "1px 0 0",
 }
 
 const copyrightStyles = {
   textAlign: "center",
   paddingTop: "0.75rem",
-  color: "rgb(107, 114, 128)"
+  color: "#6b7280"
 }
 
 export const Copyright = () => {
