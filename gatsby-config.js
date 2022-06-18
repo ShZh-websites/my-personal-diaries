@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `ShZh的日记`,
     description: "沈之豪的个人日记小站",
-    image: "/favicon.ico",
+    image: "static/favicon.png",
     siteUrl: `https://diary.shzh.me/`
   },
   plugins: [
