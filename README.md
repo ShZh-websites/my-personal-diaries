@@ -1,6 +1,6 @@
 <h1 align="center">ShZh的日记小站</h1>
 
-<p align="center"><i>📖 ShZh的个人日记小站，由Gatsby和heti强势驱动</i></p>
+<p align="center">📖 ShZh的个人日记小站，由Gatsby和heti强势驱动</p>
 
 <p align="center">
     <a href="https://sonarcloud.io/summary/new_code?id=ShZh-websites_my-personal-diaries" style="text-decoration:none" >
@@ -38,7 +38,7 @@ Google [PageSpeed Insight](https://pagespeed.web.dev/report?url=https%3A%2F%2Fdi
 
 # FAQ
 
-##### 1、为什么没有评论区？
+### 1、为什么没有评论区？
 
 所谓的「日记」并不是那种技术博客，它记录的是作者生活的点点滴滴。
 
@@ -55,7 +55,7 @@ Google [PageSpeed Insight](https://pagespeed.web.dev/report?url=https%3A%2F%2Fdi
 
 综上所述，不如直接拿掉评论区。
 
-##### 2、为什么不让用户自己切换主题？
+### 2、为什么不让用户自己切换主题？
 
 深色主题和浅色主题哪个更护眼，这个是有争议的。
 
@@ -67,7 +67,7 @@ Google [PageSpeed Insight](https://pagespeed.web.dev/report?url=https%3A%2F%2Fdi
 
 所以作者直接剥夺了用户选择的权利，按照系统的主题自适应。
 
-##### 3、如何从文章返回到首页？
+### 3、如何从文章返回到首页？
 
 这个实际上是一个设计缺陷，主要是因为作者还没有想好这个返回按钮放在哪里。
 
@@ -79,8 +79,8 @@ Google [PageSpeed Insight](https://pagespeed.web.dev/report?url=https%3A%2F%2Fdi
 
 本项目在设计上主要参考了以下网站：
 
-- Belleve Invis的个人网站：https://typeof.net/
-- vthinkxie的个人网站：https://xieyadong.com/
+- [Belleve](https://github.com/be5invis)的个人网站：https://typeof.net/
+- [vthinkxie](https://github.com/vthinkxie)的个人网站：https://xieyadong.com/
 
 
 
