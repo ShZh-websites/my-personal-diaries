@@ -26,11 +26,14 @@ const Title = styled.h1`
 
 const IndexPage = (props) => {
   let theme = useContext(ThemeManagerContext)
-  window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', _ => {
-    theme.toggleDark()
-  });
+
+  if (typeof window !== "undefined") {
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', _ => {
+          theme.toggleDark()
+        });
+  }
 
   return (
     <>
