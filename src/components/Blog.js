@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {GlobalStyles} from "./GlobalStyles";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import "heti/umd/heti.min.css";
 
@@ -20,6 +21,7 @@ const containerStyles = {
 const Blog = (props) => {
   return (
       <>
+        <GlobalStyles />
         <article className="heti heti--classic">
           <h1 style={titleStyles}>{props.title}</h1>
           <div style={containerStyles}>

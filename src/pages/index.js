@@ -1,42 +1,57 @@
 import * as React from "react"
+import {css} from "@emotion/react";
 import {Card} from "../components/Card";
 import {Copyright} from "../components/Copyright";
-import "normalize.css";
-import "heti/umd/heti.min.css";
 import {graphql} from "gatsby";
 import {Helmet} from "react-helmet";
+import styled from "@emotion/styled";
+import {useContext} from "react";
+import {ThemeManagerContext} from "gatsby-emotion-dark-mode";
+import {GlobalStyles} from "../components/GlobalStyles";
+import "normalize.css";
+import "heti/umd/heti.min.css";
 
-const titleStyles = {
-  textAlign: "center",
-  fontFamily: "TEXT_CONTENT,TEXT_CONTENT_SYNTH,'Source Han Serif SC',serif",
-}
+const Container = styled.div`
+  margin: 0 auto;
+  padding: 8px 16px;
+  min-height: 100vh;
+  max-width: 800px;
+`
 
-const containerStyles = {
-  margin: "0 auto",
-  padding: "8px 16px",
-  minHeight: "100vh",
-  maxWidth: "800px",
-}
+const Title = styled.h1`
+  text-align: center;
+  color: ${(props) => props.theme.fontColor};
+  font-family: TEXT_CONTENT,TEXT_CONTENT_SYNTH,'Source Han Serif SC',serif;
+`
 
-const mainStyles = {
-  display: "flex",
-  flexWrap: "wrap"
-}
+const IndexPage = (props) => {
+  let theme = useContext(ThemeManagerContext)
+  window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', _ => {
+    theme.toggleDark()
+  });
 
-const IndexPage = ({ data }) => {
   return (
     <>
       <Helmet
           htmlAttributes={{lang: 'zh-CN'}}
           meta={[{name: "description", content: "沈之豪的个人日记小站"}]}>
         <title>ShZh日记｜首页</title>
-        <link href="https://diary.shzh.me/feed.xml" type="application/rss+xml" rel="alternate" title="ShZh diary's RSS feed" />
+        <link href="https://diary.shzh.me/feed.xml"
+              title="ShZh diary's RSS feed"
+              type="application/rss+xml"
+              rel="alternate"/>
       </Helmet>
-      <div style={containerStyles}>
-        <h1 className="heti--kai"  style={titleStyles}>沈之豪的日记</h1>
-        <main style={mainStyles}>
+      <GlobalStyles />
+      <Container>
+        <Title>沈之豪的日记</Title>
+        <main css={css`
+          display: flex;
+          flex-wrap: wrap;
+        `}>
           {
-            data.allMdx.nodes.map(node => (
+            props.data.allMdx.nodes.map(node => (
                 <Card
                     key={node.id}
                     link={node.slug}
@@ -47,8 +62,8 @@ const IndexPage = ({ data }) => {
             ))
           }
         </main>
-        <Copyright></Copyright>
-      </div>
+        <Copyright />
+      </Container>
     </>
   )
 }

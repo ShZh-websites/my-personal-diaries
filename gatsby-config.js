@@ -13,6 +13,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-mdx",
     "gatsby-plugin-react-helmet",
+    "gatsby-emotion-dark-mode",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
