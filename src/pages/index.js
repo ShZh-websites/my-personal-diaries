@@ -76,7 +76,7 @@ const IndexPage = (props) => {
 
 export const query = graphql`
   {
-    allMdx {
+    allMdx(sort: { order: ASC, fields: [frontmatter___date] })  {
       nodes {
         frontmatter {
           date
