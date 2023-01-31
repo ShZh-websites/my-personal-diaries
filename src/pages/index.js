@@ -25,6 +25,7 @@ const Title = styled.h1`
 `
 
 const IndexPage = (props) => {
+  console.log(props)
   let theme = useContext(ThemeManagerContext)
 
   if (typeof window !== "undefined") {
@@ -57,13 +58,13 @@ const IndexPage = (props) => {
           flex-wrap: wrap;
         `}>
           {
-            props.data.allMdx.nodes.map(node => (
+            props.data.allContentfulBlogPost.nodes.map(post => (
                 <Card
-                    key={node.id}
-                    link={node.slug}
-                    keyword={node.frontmatter.keyword}
-                    title={node.frontmatter.title}
-                    date={node.frontmatter.date}>
+                    key={post.id}
+                    link={post.slug}
+                    keyword={post.keyword}
+                    title={post.title}
+                    date={post.date}>
                 </Card>
             ))
           }
@@ -75,19 +76,17 @@ const IndexPage = (props) => {
 }
 
 export const query = graphql`
-  {
-    allMdx(sort: { order: ASC, fields: [frontmatter___date] })  {
-      nodes {
-        frontmatter {
-          date
-          title
-          keyword
-        }
-        id
-        slug
-      }
+{
+  allContentfulBlogPost(sort: {fields: date, order: ASC}) {
+    nodes {
+      id
+      keyword
+      title
+      slug
+      date
     }
   }
+}
 `
 
 export default IndexPage

@@ -59,7 +59,7 @@ export const Card = (props) => {
           {props.title}
         </Link>
       </span>
-      <time>{props.date}</time>
+      <time>{props.date.substring(0, 10)}</time>
     </div>
   )
 }

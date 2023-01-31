@@ -3,3 +3,6 @@ node_modules/
 public
 
 .idea/
+
+# Ignore .env file for local development
+.env

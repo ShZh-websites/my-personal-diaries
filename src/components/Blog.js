@@ -18,6 +18,7 @@ const containerStyles = {
 }
 
 export const Blog = (props) => {
+  console.log(props.body)
   return (
       <>
         <GlobalStyles />

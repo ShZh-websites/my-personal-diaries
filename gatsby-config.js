@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `ShZh的日记`,
@@ -15,19 +17,19 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-emotion-dark-mode",
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
         "path": "./src/pages/"
       },
       __key: "pages"
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        "name": "blog",
-        "path": "./blog/"
-      }
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -52,31 +54,29 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({query: {site, allMdx}}) => {
-              return allMdx.nodes.map(node => {
-                return Object.assign({}, node.frontmatter, {
-                  description: node.frontmatter.desc,
-                  date: node.frontmatter.date,
-                  url: encodeURI(site.siteMetadata.siteUrl + '/' + node.slug),
+            serialize: ({query: {site, allContentfulBlogPost}}) => {
+              return allContentfulBlogPost.nodes.map(node => {
+                return {
+                  title: node.title,
+                  description: node.desc,
+                  date: node.date,
+                  url: encodeURI(site.siteMetadata.siteUrl + '/blog/' + node.slug),
                   guid: site.siteMetadata.siteUrl + node.slug,
-                })
+                }
               })
             },
             query: `
               {
-                allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+                allContentfulBlogPost(sort: {fields: date, order: DESC}) {
                   nodes {
-                    frontmatter {
-                      date
-                      title
-                      keyword
-                    }
-                    id
+                    title
+                    desc
                     slug
+                    date
                   }
                 }
               }
-          `,
+            `,
             output: "/feed.xml",
             title: "ShZh blogs' RSS Feed",
             match: "^/blog/",
