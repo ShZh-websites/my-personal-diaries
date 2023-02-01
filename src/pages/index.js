@@ -25,7 +25,6 @@ const Title = styled.h1`
 `
 
 const IndexPage = (props) => {
-  console.log(props)
   let theme = useContext(ThemeManagerContext)
 
   if (typeof window !== "undefined") {
